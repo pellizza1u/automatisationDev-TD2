@@ -27,5 +27,11 @@ Il permet de lister plusieurs entreprise, et d'en voir leur bureau et employées
 `docker compose up`
 
 ## (re)Créer et alimenter la base de données
-1) Créer la base de données
-`docker compose run --rm db mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS annuaire;"`
+Il faut que le container database soit lancé pour effectuer ces commandes.
+ 
+**Supprimer et re-créer la base de données**  
+`dexec php php bin/console.php db:create`   
+
+**Alimenter la base de données**  
+`dexec php php bin/console.php db:populate`   
+

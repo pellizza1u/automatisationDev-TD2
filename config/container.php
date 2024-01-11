@@ -10,13 +10,17 @@ return [
     'settings' => function () {
         return require __DIR__ . '/settings.php';
     },
-    App::class => function (ContainerInterface $container) {
+    'db' => function (ContainerInterface $container) {
         $capsule = new \Illuminate\Database\Capsule\Manager;
         $capsule->addConnection($container->get('settings')['db']);
 
         $capsule->setAsGlobal();
         $capsule->bootEloquent();
 
+        return $capsule;
+    },
+    App::class => function (ContainerInterface $container) {
+        $container->get('db');
         AppFactory::setContainer($container);
         return AppFactory::create();
     },

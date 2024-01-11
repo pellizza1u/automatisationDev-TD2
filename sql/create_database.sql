@@ -1,7 +1,8 @@
-ALTER TABLE IF EXISTS companies DROP FOREIGN KEY companies_id_fk_1;
+SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS employees;
 DROP TABLE IF EXISTS offices;
 DROP TABLE IF EXISTS companies;
+SET FOREIGN_KEY_CHECKS=1;
 
 CREATE TABLE companies
 (
@@ -44,4 +45,3 @@ CREATE TABLE employees
     PRIMARY KEY (id),
     FOREIGN KEY (office_id) REFERENCES offices (id)
 );
-
