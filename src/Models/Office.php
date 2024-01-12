@@ -26,6 +26,6 @@ class Office extends Model
 
     public function getFullAddressAttribute()
     {
-        return "{$this->address}, {$this->city}, {$this->state}, {$this->country}";
+        return "{$this->address}, {$this->city}, {$this->zip_code}, {$this->country}";
     }
 }
