@@ -10,6 +10,9 @@
 		{% for office in company.offices %}
 			<div class="office">
 				<h2>{{ office.name }}</h2>
+				<div class="text-center">
+					<button class="office-edit" data-office-id="{{ office.id }}">✏️&nbsp;&nbsp;Éditer</button>
+				</div>
 				<p>Siège social: {{ office.headOffice ? 'Oui' : 'Non' }}</p>
 				<p>Adresse: {{ office.getFullAddressAttribute() }}</p>
 				<div>

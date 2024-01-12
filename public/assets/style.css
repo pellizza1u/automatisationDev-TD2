@@ -79,3 +79,65 @@ html, body {
     width: 60px;
     color: var(--accent-color);
 }
+
+.button, button, input[type="submit"] {
+    background: var(--main-color);
+    color: var(--main-bg-color);
+    border-radius: 2px;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.button:hover, button:hover, input[type="submit"]:hover {
+    background: var(--accent-color);
+}
+
+.button:active, button:active, input[type="submit"]:active {
+    transform: scale(0.95);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal {
+    background-color: var(--main-bg-color);
+    padding: 1em ;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.modal-content {
+    margin-bottom: 1em;
+}
+
+.active {
+    display: flex;
+}
+
+
+

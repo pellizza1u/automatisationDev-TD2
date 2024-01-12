@@ -12,8 +12,6 @@ $containerBuilder->addDefinitions(__DIR__ . '/container.php');
 $container = $containerBuilder->build();
 
 $app = $container->get(App::class);
-$app->addRoutingMiddleware();
-$app->add(TwigMiddleware::createFromContainer($app));
 
 (require __DIR__ . '/routes.php')($app);
 

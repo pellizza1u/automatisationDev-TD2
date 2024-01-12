@@ -42,6 +42,8 @@ class CreateDatabaseCommand extends Command
     email   VARCHAR(255)                  ,
     website VARCHAR(255)                  ,
     image   VARCHAR(255)                  ,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     head_office_id INT                    ,
     PRIMARY KEY (id)
 );
@@ -59,6 +61,8 @@ class CreateDatabaseCommand extends Command
     email      VARCHAR(255)               ,
     phone      VARCHAR(255)               ,
     company_id INT                NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     FOREIGN KEY (company_id) REFERENCES companies (id)
 );
@@ -74,6 +78,8 @@ class CreateDatabaseCommand extends Command
     email      VARCHAR(255)               ,
     phone      VARCHAR(255)               ,
     job_title  VARCHAR(255)               ,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     FOREIGN KEY (office_id) REFERENCES offices (id)
 );

@@ -5,6 +5,7 @@ use Slim\Factory\AppFactory;
 use Slim\Middleware\ErrorMiddleware;
 use Psr\Container\ContainerInterface;
 use Slim\Views\Twig;
+use Slim\Views\TwigMiddleware;
 
 return [
     'settings' => function () {
@@ -22,7 +23,10 @@ return [
     App::class => function (ContainerInterface $container) {
         $container->get('db');
         AppFactory::setContainer($container);
-        return AppFactory::create();
+        $app =  AppFactory::create();
+        $app->addRoutingMiddleware();
+        $app->add(TwigMiddleware::createFromContainer($app));
+        return $app;
     },
     ErrorMiddleware::class => function (ContainerInterface $container) {
         $app = $container->get(App::class);
