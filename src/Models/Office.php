@@ -21,7 +21,7 @@ class Office extends Model
 
     public function isHeadOffice(): bool
     {
-        return $this->company->headOffice->id === $this->id;
+        return $this->company()->firstOrFail()->headOffice()->firstOrFail()->id === $this->id;
     }
 
     public function getFullAddressAttribute()
@@ -29,3 +29,4 @@ class Office extends Model
         return "{$this->address}, {$this->city}, {$this->zip_code}, {$this->country}";
     }
 }
+
