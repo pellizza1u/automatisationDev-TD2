@@ -1,3 +1,5 @@
+Binome du TD : Pellizzari Théo et Brach Vincent
+
 # Annuaire d'entreprise
 
 Ce projet est un petit annuaire d'entreprises.  
