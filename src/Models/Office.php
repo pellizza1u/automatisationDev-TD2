@@ -5,28 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Office extends Model
+class Employee extends Model
 {
-    protected $table = 'offices';
+    protected $table = 'employees';
 
-    public function employees()
+    public function office(): BelongsTo
     {
-        return $this->hasMany(Employee::class);
+        return $this->belongsTo(Office::class);
     }
 
-    public function company(): BelongsTo
+    public function getDisplayName(): string
     {
-        return $this->belongsTo(Company::class);
+        return "{$this->first_name} {$this->last_name}";
     }
 
-    public function isHeadOffice(): bool
+    public function __toString(): string
     {
-        return $this->company()->firstOrFail()->headOffice()->firstOrFail()->id === $this->id;
-    }
-
-    public function getFullAddressAttribute()
-    {
-        return "{$this->address}, {$this->city}, {$this->zip_code}, {$this->country}";
+        $prenomNom = "{$this->first_name} {$this->last_name}";
+        $telephone = "telephone: " . ($this->phone ?? 'N/A');
+        $job_title = "job title: " . ($this->job_title ?? 'N/A');
+        $email = "email: " . ($this->email ?? 'N/A');
+        return implode(' | ', [$prenomNom, $telephone, $job_title, $email]);
     }
 }
 
